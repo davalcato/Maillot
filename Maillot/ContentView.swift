@@ -183,7 +183,7 @@ struct DetailView : View{
     
     var body : some View{
         
-        VStack{
+        VStack(spacing: 0){
             
             HStack(spacing: 18){
                 
@@ -214,7 +214,9 @@ struct DetailView : View{
                 
             }.navigationBarTitle("")
                 .navigationBarHidden(true)
-                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                .padding(.bottom, 15)
+                
             
             
             Image("pic").resizable()
@@ -283,11 +285,10 @@ struct DetailView : View{
                 }.padding([.leading,.trailing], 15)
                  .padding(.top, 15)
                 
-            }
-            
-        }.padding()
-        .background(Color.white)
-        .padding(.top, -50)
+            }.padding()
+            .background(rounded().fill(Color.white))
+            .padding(.top, -50)
+        }
     }
 }
 
