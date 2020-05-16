@@ -219,7 +219,7 @@ struct DetailView : View{
             
             Image("pic").resizable()
             
-            VStack(spacing: 15){
+            VStack(alignment: .leading, spacing: 15){
                 
                 HStack{
                     
@@ -279,12 +279,25 @@ struct DetailView : View{
                     }.foregroundColor(.white)
                      .background(Color.black)
                      .cornerRadius(10)
+                    
                 }.padding([.leading,.trailing], 15)
+                 .padding(.top, 15)
                 
             }
             
         }.padding()
         .background(Color.white)
+        .padding(.top, -50)
+    }
+}
+
+struct rounded : Shape {
+    
+    func path(in rect: CGRect) -> Path {
+    
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 35, height: 35))
+        
+        return Path(path.cgPath)
     }
 }
 
