@@ -15,7 +15,7 @@ struct ContentView: View {
             
             ZStack{
                 
-                Text("Maillot").font(.largeTitle)
+                Text("Maillot").font(.title)
                 
                 HStack(spacing: 18){
                     
@@ -24,7 +24,7 @@ struct ContentView: View {
                         
                     }) {
                         
-                        Image("menu").renderingMode(.original)
+                        Image("Menu").renderingMode(.original)
                     }
                     
                     Spacer()
@@ -65,5 +65,44 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct MainView : View{
+    
+    var body: some View{
+        
+        VStack(spacing: 15){
+            
+            HStack{
+                
+                HStack{
+                    
+                    Button(action: {
+                        
+                    }) {
+                        
+                        HStack{
+                            
+                            Text("Causal Dress")
+                            
+                            Spacer()
+                            
+                            Image("down")
+                        }.padding()
+                        
+                    }.foregroundColor(.black)
+                    
+                    Button(action: {
+                        
+                    }) {
+                        
+                        Image("filter").renderingMode(.original).padding()
+                        
+                    }.background(Color.white)
+                }
+            }
+            
+        }.padding()
     }
 }
