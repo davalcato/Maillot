@@ -258,12 +258,33 @@ struct DetailView : View{
                             Text(i).padding().border(Color.black, width: self.size == i ? 1.5 : 0)
                         }.foregroundColor(.black)
                     }
-                    
                 }
+                
+                HStack{
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Add To Cart").padding().border(Color.black, width: 1.4)
+                    }.foregroundColor(.black)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        
+                    }) {
+                        
+                        Text("Buy Now").padding()
+                        
+                    }.foregroundColor(.white)
+                     .background(Color.black)
+                     .cornerRadius(10)
+                }.padding([.leading,.trailing], 15)
                 
             }
             
         }.padding()
+        .background(Color.white)
     }
 }
 
