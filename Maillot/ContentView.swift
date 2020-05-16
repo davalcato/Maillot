@@ -56,8 +56,9 @@ struct ContentView: View {
                     .padding([.leading,.trailing,.top], 15)
                 
               MainView()
-            }
-            
+            }.navigationBarBackButtonHidden(true)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }
@@ -115,7 +116,7 @@ struct MainView : View{
 
 struct DetailsScroll : View {
     
-    
+    @State var show = false
     var body: some View{
         
         ScrollView(.vertical, showsIndicators: false) {
@@ -128,31 +129,8 @@ struct DetailsScroll : View {
                         
                         ForEach(i.row){j in
                             
-                            VStack(spacing: 8){
-                                
-                                Image(j.image).resizable().frame(width: UIScreen.main.bounds.width / 2 - 25, height: 240)
-                                
-                                HStack{
-                                    
-                                    VStack(alignment: .leading, spacing: 10){
-                                        
-                                        Text(j.name)
-                                        Text(j.price).fontWeight(.heavy)
-                                        
-                                        
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Button(action: {
-                                        
-                                    }) {
-                                        
-                                        Image("option").renderingMode(.original)
-                                        
-                                    }.padding(.trailing, 15)
-                                }
-                            }
+                            Cards(row: j)
+                            
                         }
                     }
                 }
@@ -161,7 +139,47 @@ struct DetailsScroll : View {
     }
 }
 
+struct Cards : View {
+    
+    var row : row
+    @State var show = false
+    
+    var body : some View{
+        
+        VStack(spacing: 8){
+            
+            NavigationLink(destination: DetailView(show: $show), isActive: $show) {
+                
+                Image(row.image).renderingMode(.original).resizable().frame(width: UIScreen.main.bounds.width / 2 - 25, height: 240)
+            }
+            
+            HStack{
+                
+                VStack(alignment: .leading, spacing: 10){
+                    
+                    Text(row.name)
+                    Text(row.price).fontWeight(.heavy)
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    
+                }) {
+                    
+                    Image("option").renderingMode(.original)
+                    
+                }.padding(.trailing, 15)
+            }
+        }
+        
+    }
+}
+
 struct DetailView : View{
+    
+    @Binding var show : Bool
+    
     
     var body : some View{
         
@@ -171,10 +189,11 @@ struct DetailView : View{
                 
                 Button(action: {
                     
+                    self.show.toggle()
                     
                 }) {
                     
-                    Image("back").renderingMode(.original)
+                    Image("Back").renderingMode(.original)
                 }
                 
                 Spacer()
@@ -198,7 +217,12 @@ struct DetailView : View{
                 .navigationBarHidden(true)
             
             
-            Spacer()
+            Image("pic").resizable()
+            
+            VStack(spacing: 15){
+                
+                Text("Summer Vibes").font(.largeTitle)
+            }
             
         }.padding()
     }
