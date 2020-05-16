@@ -11,50 +11,53 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        VStack(spacing: 15){
-            
-            ZStack{
+        NavigationView{
+            VStack(spacing: 15){
                 
-                Text("Maillot").font(.title)
+                ZStack{
+                    
+                    Text("Maillot").font(.title)
+                    
+                    HStack(spacing: 18){
+                        
+                        Button(action: {
+                            
+                            
+                        }) {
+                            
+                            Image("Menu").renderingMode(.original)
+                        }
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            
+                        }) {
+                            
+                            Image("search").renderingMode(.original)
+                        }
+                      
+                        Button(action: {
+                            
+                        }) {
+                            
+                            Image("noti").renderingMode(.original)
+                        }
+                        
+                        Button(action: {
+                            
+                        }) {
+                            
+                            Image("shop").renderingMode(.original)
+                        }
+                    }
+                }.background(Color.white)
+                    //Adding the space between the buttons
+                    .padding([.leading,.trailing,.top], 15)
                 
-                HStack(spacing: 18){
-                    
-                    Button(action: {
-                        
-                        
-                    }) {
-                        
-                        Image("Menu").renderingMode(.original)
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        
-                    }) {
-                        
-                        Image("search").renderingMode(.original)
-                    }
-                  
-                    Button(action: {
-                        
-                    }) {
-                        
-                        Image("noti").renderingMode(.original)
-                    }
-                    
-                    Button(action: {
-                        
-                    }) {
-                        
-                        Image("shop").renderingMode(.original)
-                    }
-                }
-            }.background(Color.white)
-                //Adding the space between the buttons
-                .padding([.leading,.trailing,.top], 15)
+              MainView()
+            }
             
-          MainView()
         }
     }
 }
@@ -158,6 +161,48 @@ struct DetailsScroll : View {
     }
 }
 
+struct DetailView : View{
+    
+    var body : some View{
+        
+        VStack{
+            
+            HStack(spacing: 18){
+                
+                Button(action: {
+                    
+                    
+                }) {
+                    
+                    Image("back").renderingMode(.original)
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    
+                }) {
+                    
+                    Image("search").renderingMode(.original)
+                }
+        
+                Button(action: {
+                    
+                }) {
+                    
+                    Image("shop").renderingMode(.original)
+                }
+                
+            }.navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarHidden(true)
+            
+            
+            Spacer()
+            
+        }.padding()
+    }
+}
 
 
 struct type : Identifiable{
