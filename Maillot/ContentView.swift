@@ -71,6 +71,8 @@ struct ContentView_Previews: PreviewProvider {
 
 struct MainView : View{
     
+    @State var selected = "Dress"
+    
     var body: some View{
         
         VStack(spacing: 15){
@@ -106,11 +108,33 @@ struct MainView : View{
                 }
             }
             
+            HStack{
+                
+                ForEach(types,id: \.self){i in
+                    
+                    HStack{
+                        
+                        Button(action: {
+                            
+                            self.selected = i
+                            
+                        }) {
+                            
+                            Text(i).padding()
+                            
+                        }
+                        .foregroundColor(self.selected == i ? .white : .black)
+                        .background(self.selected == i ? Color.black : Color.clear)
+                        
+                        Spacer(minLength: 0)
+                    }
+                }
+            }
+            
             DetailsScroll()
             
         }.padding()
         .background(Color("Color"))
-        
     }
 }
 
@@ -215,9 +239,10 @@ struct DetailView : View{
             }.navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
-                .padding(.bottom, 15)
                 
-            
+                //This is the padding for the search and shop icons
+                .padding([.bottom,.leading,.trailing], 15)
+                
             
             Image("pic").resizable()
             
