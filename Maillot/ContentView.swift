@@ -104,9 +104,9 @@ struct MainView : View{
             
             DetailsScroll()
             
-        }
+        }.padding()
         .background(Color("Color"))
-        .padding()
+        
     }
 }
 
@@ -117,34 +117,37 @@ struct DetailsScroll : View {
         
         ScrollView(.vertical, showsIndicators: false) {
             
-            ForEach(datas){i in
+            VStack(spacing: 12){
                 
-                HStack{
+                ForEach(datas){i in
                     
-                    ForEach(i.row){j in
+                    HStack{
                         
-                        VStack(spacing: 8){
+                        ForEach(i.row){j in
                             
-                            Image(j.image).resizable().frame(width: UIScreen.main.bounds.width / 2 - 25, height: 240)
-                            
-                            HStack{
+                            VStack(spacing: 8){
                                 
-                                VStack(alignment: .leading, spacing: 10){
-                                    
-                                    Text(j.name)
-                                    Text(j.price).fontWeight(.heavy)
-                                    
-                                    
-                                }
+                                Image(j.image).resizable().frame(width: UIScreen.main.bounds.width / 2 - 25, height: 240)
                                 
-                                Spacer()
-                                
-                                Button(action: {
+                                HStack{
                                     
-                                }) {
+                                    VStack(alignment: .leading, spacing: 10){
+                                        
+                                        Text(j.name)
+                                        Text(j.price).fontWeight(.heavy)
+                                        
+                                        
+                                    }
                                     
-                                    Image("Menu").renderingMode(.original)
+                                    Spacer()
                                     
+                                    Button(action: {
+                                        
+                                    }) {
+                                        
+                                        Image("option").renderingMode(.original)
+                                        
+                                    }.padding(.trailing, 15)
                                 }
                             }
                         }
@@ -154,6 +157,8 @@ struct DetailsScroll : View {
         }
     }
 }
+
+
 
 struct type : Identifiable{
     
