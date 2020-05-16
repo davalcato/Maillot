@@ -179,7 +179,7 @@ struct Cards : View {
 struct DetailView : View{
     
     @Binding var show : Bool
-    
+    @State var size = ""
     
     var body : some View{
         
@@ -221,7 +221,46 @@ struct DetailView : View{
             
             VStack(spacing: 15){
                 
-                Text("Summer Vibes").font(.largeTitle)
+                HStack{
+                    
+                    VStack(alignment: .leading, spacing: 8){
+                        Text("Summer Vibes").font(.largeTitle)
+                        Text("199.99").fontWeight(.heavy)
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 10){
+                        
+                        Circle().fill(Color.green).frame(width: 20, height: 20)
+                        Circle().fill(Color.blue).frame(width: 20, height: 20)
+                        Circle().fill(Color.red).frame(width: 20, height: 20)
+                        
+                    }
+                    
+                }
+                
+                Text("You can even compare future fashion purchases with current pieces in your closet!")
+                
+                Text("Select Size")
+                
+                HStack{
+                    
+                    ForEach(sizes,id: \.self){i in
+                        
+                        Button(action: {
+                            
+                            self.size = i
+                            
+                        }) {
+                            
+                            Text(i).padding().border(Color.black, width: self.size == i ? 1.5 : 0)
+                        }.foregroundColor(.black)
+                    }
+                    
+                }
+                
             }
             
         }.padding()
