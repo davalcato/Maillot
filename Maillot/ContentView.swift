@@ -17,7 +17,7 @@ struct ContentView: View {
                 
                 Text("Maillot").font(.largeTitle)
                 
-                HStack{
+                HStack(spacing: 18){
                     
                     Button(action: {
                         
@@ -40,7 +40,7 @@ struct ContentView: View {
                         
                     }) {
                         
-                        Image("notify").renderingMode(.original)
+                        Image("noti").renderingMode(.original)
                     }
                     
                     Button(action: {
@@ -51,6 +51,8 @@ struct ContentView: View {
                     }
                 }
             }.background(Color.white)
+                //Adding the space between the buttons
+                .padding([.leading,.trailing,.top], 15)
             
             ZStack{
                 
