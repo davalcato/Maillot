@@ -10,7 +10,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        
+        VStack{
+            
+            ZStack{
+                
+                Text("Maillot").font(.largeTitle)
+                
+                HStack{
+                    
+                    Button(action: {
+                        <#code#>
+                    }) {
+                        
+                        Image("")
+                    }
+                }
+            }
+            
+        }
     }
 }
 
