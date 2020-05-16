@@ -20,14 +20,42 @@ struct ContentView: View {
                 HStack{
                     
                     Button(action: {
-                        <#code#>
+                        
+                        
                     }) {
                         
-                        Image("")
+                        Image("menu").renderingMode(.original)
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        
+                    }) {
+                        
+                        Image("search").renderingMode(.original)
+                    }
+                  
+                    Button(action: {
+                        
+                    }) {
+                        
+                        Image("notify").renderingMode(.original)
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        
+                        Image("shop").renderingMode(.original)
                     }
                 }
-            }
+            }.background(Color.white)
             
+            ZStack{
+                
+                Color("Color")
+            }
         }
     }
 }
