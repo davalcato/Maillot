@@ -54,10 +54,7 @@ struct ContentView: View {
                 //Adding the space between the buttons
                 .padding([.leading,.trailing,.top], 15)
             
-            ZStack{
-                
-                Color("Color")
-            }
+          MainView()
         }
     }
 }
@@ -103,6 +100,10 @@ struct MainView : View{
                 }
             }
             
-        }.padding()
+            Spacer()
+            
+        }
+        .background(Color("Color"))
+        .padding()
     }
 }
