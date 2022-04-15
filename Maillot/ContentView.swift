@@ -125,6 +125,7 @@ struct MainView : View{
                         }
                         .foregroundColor(self.selected == i ? .white : .black)
                         .background(self.selected == i ? Color.black : Color.clear)
+                        .cornerRadius(10)
                         
                         Spacer(minLength: 0)
                     }
@@ -135,6 +136,7 @@ struct MainView : View{
             
         }.padding()
         .background(Color("Color"))
+        .animation(.spring())
     }
 }
 
@@ -151,7 +153,7 @@ struct DetailsScroll : View {
                     
                     HStack{
                         
-                        ForEach(i.row){j in
+                        ForEach(i.rows){j in
                             
                             Cards(row: j)
                             
@@ -241,7 +243,7 @@ struct DetailView : View{
                 .navigationBarBackButtonHidden(true)
                 
                 //This is the padding for the search and shop icons
-                .padding([.bottom,.leading,.trailing], 15)
+                .padding(15)
                 
             
             Image("pic").resizable()
@@ -331,7 +333,7 @@ struct rounded : Shape {
 struct type : Identifiable{
     
     var id : Int
-    var row : [row]
+    var rows : [row]
 }
 
 struct row : Identifiable {
@@ -352,8 +354,8 @@ var types = ["Dress","Pants","Blazers","Jackets"]
 var datas = [
     
 
-    type(id: 0,row: [row(id:0,name: "Fit And Flare", price: "$199", image: "p11"),row(id:1,name: "Empire Dress", price: "$136", image: "p12")]),
+    type(id: 0,rows: [row(id:0,name: "Fit And Flare", price: "$199", image: "p11"),row(id:1,name: "Empire Dress", price: "$136", image: "p12")]),
 
-    type(id: 2,row: [row(id:0,name: "Summer Vibes", price: "$136", image: "p21"),row(id:1,name: "Flora Fun", price: "$150", image: "p22")]),
+    type(id: 2,rows: [row(id:0,name: "Summer Vibes", price: "$136", image: "p21"),row(id:1,name: "Flora Fun", price: "$150", image: "p22")]),
 
-]
+    ]
